@@ -38,7 +38,7 @@ def main():
     elif check_for_I == "F":
         file_name = input().replace('\r','')
         try:
-            with open('./test/' + file_name, 'r') as f:
+            with open('./tests/' + file_name, 'r') as f:
                 n = int(f.readline())
                 data = list(map(int, f.readline().split()))
         except FileNotFoundError:
