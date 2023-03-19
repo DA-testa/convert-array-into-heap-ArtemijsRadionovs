@@ -29,7 +29,7 @@ def main():
             with open('./test/' + file_name, 'r') as f:
                 n = int(f.readline())
                 data = list(map(int, f.readline().split()))
-            except FileNotFoundError:
+        except FileNotFoundError:
                 print("File not found!")
                 return
     # checks if lenght of data is the same as the said lenght
@@ -43,18 +43,18 @@ def main():
     # this number should be less than 4n (less than 4*len(data))
     
     def sift_down(data, i, swaps):
-    n = len(data)
-    min_index = i
-    l = 2 * i + 1
-    if l < n and data[l] < data[min_index]:
-        min_index = l
-    r = 2 * i + 2
-    if r < n and data[r] < data[min_index]:
-        min_index = r
-    if i != min_index:
-        data[i], data[min_index] = data[min_index], data[i]
-        swaps.append((i, min_index))
-        sift_down(data, min_index, swaps)
+        n = len(data)
+        min_index = i
+        l = 2 * i + 1
+        if l < n and data[l] < data[min_index]:
+            min_index = l
+        r = 2 * i + 2
+        if r < n and data[r] < data[min_index]:
+            min_index = r
+        if i != min_index:
+            data[i], data[min_index] = data[min_index], data[i]
+            swaps.append((i, min_index))
+            sift_down(data, min_index, swaps)
 
     # output all swaps
     print(len(swaps))
